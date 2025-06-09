@@ -1,0 +1,200 @@
+/* Modern Contact Section Styles */
+.contact-section {
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-primary);
+}
+
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-content h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-content p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-2xl);
+  line-height: 1.7;
+}
+
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  transition: left var(--transition-slow);
+  z-index: 0;
+}
+
+.contact-link:hover::before {
+  left: 0;
+}
+
+.contact-link:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-heavy);
+  border-color: var(--text-accent);
+  color: white;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transition-normal);
+}
+
+.contact-text {
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-link:hover .contact-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Special styling for WhatsApp link */
+.contact-link[href*="wa.me"] {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  border-color: #25d366;
+}
+
+.contact-link[href*="wa.me"]:hover {
+  background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Special styling for email link */
+.contact-link[href^="mailto"] {
+  background: linear-gradient(135deg, #ea4335 0%, #d33b2c 100%);
+  color: white;
+  border-color: #ea4335;
+}
+
+.contact-link[href^="mailto"]:hover {
+  background: linear-gradient(135deg, #d33b2c 0%, #b52d20 100%);
+}
+
+/* LinkedIn styling */
+.contact-link[href*="linkedin"] {
+  background: linear-gradient(135deg, #0077b5 0%, #005582 100%);
+  color: white;
+  border-color: #0077b5;
+}
+
+.contact-link[href*="linkedin"]:hover {
+  background: linear-gradient(135deg, #005582 0%, #004471 100%);
+}
+
+/* GitHub styling */
+.contact-link[href*="github"] {
+  background: linear-gradient(135deg, #333 0%, #24292e 100%);
+  color: white;
+  border-color: #333;
+}
+
+.contact-link[href*="github"]:hover {
+  background: linear-gradient(135deg, #24292e 0%, #1b1f23 100%);
+}
+
+/* CV Download styling */
+.contact-link[download] {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  border-color: #f59e0b;
+}
+
+.contact-link[download]:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+  
+  .contact-content h3 {
+    font-size: 2rem;
+  }
+  
+  .contact-links {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .contact-link {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .contact-link {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .contact-content {
+  text-align: right;
+}
+
+/* Dark mode adjustments */
+body.dark .contact-link {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+body.dark .contact-link:hover {
+  background: var(--bg-tertiary);
+}

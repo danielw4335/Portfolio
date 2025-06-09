@@ -1,0 +1,541 @@
+// צבעים עיקריים
+$primary-color: #3b82f6;
+$secondary-color: #1e40af;
+$accent-color: #f59e0b;
+$text-color: #1f2937;
+$text-light: #6b7280;
+$bg-color: #ffffff;
+$bg-light: #f9fafb;
+$border-color: #e5e7eb;
+
+// פונטים
+$font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// ברייק פוינטים
+$mobile: 768px;
+$tablet: 1024px;
+
+// מיקסינים
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@mixin hover-scale {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
+// גלובל סטיילים
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  color: $text-color;
+  background-color: $bg-color;
+  line-height: 1.6;
+  direction: rtl;
+}
+
+.main-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+// כפתורים
+.btn-primary, .btn-secondary, .btn-demo, .btn-code {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  color: white;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($primary-color, 0.3);
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  
+  &:hover {
+    background: $primary-color;
+    color: white;
+  }
+}
+
+.btn-demo {
+  background: $accent-color;
+  color: white;
+  font-size: 14px;
+  padding: 8px 16px;
+  
+  &:hover {
+    background: darken($accent-color, 10%);
+  }
+}
+
+.btn-code {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 14px;
+  padding: 6px 16px;
+  
+  &:hover {
+    background: white;
+    color: $text-color;
+  }
+}
+
+// Header
+.main-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid $border-color;
+  
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    text-decoration: none;
+    color: $primary-color;
+    font-weight: bold;
+    
+    h2 {
+      margin: 0;
+    }
+  }
+  
+  .main-nav {
+    display: flex;
+    gap: 2rem;
+    
+    .nav-link {
+      text-decoration: none;
+      color: $text-color;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $primary-color;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: width 0.3s ease;
+      }
+      
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Home Page
+.home-page {
+  .hero-section {
+    min-height: 80vh;
+    @include flex-center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, $bg-light 0%, white 100%);
+    
+    .hero-content {
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      
+      @media (max-width: $mobile) {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, $primary-color, $secondary-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      @media (max-width: $mobile) {
+        font-size: 2.5rem;
+      }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: $accent-color;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+      font-size: 1.2rem;
+      color: $text-light;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      
+      @media (max-width: $mobile) {
+        flex-direction: column;
+      }
+    }
+    
+    .hero-image {
+      @include flex-center;
+      
+      .profile-image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        @include flex-center;
+        @include card-shadow;
+        
+        .placeholder-avatar {
+          font-size: 6rem;
+        }
+      }
+    }
+  }
+  
+  .about-section, .contact-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    h3 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: $text-color;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      color: $text-light;
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    
+    .skill-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      @include card-shadow;
+      @include hover-scale;
+      
+      h4 {
+        font-size: 1.3rem;
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        color: $text-light;
+        margin: 0;
+      }
+    }
+  }
+  
+  .contact-content {
+    text-align: center;
+    
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        background: white;
+        color: $text-color;
+        text-decoration: none;
+        border-radius: 12px;
+        @include card-shadow;
+        @include hover-scale;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Projects Page
+.projects-page {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  .projects-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    
+    h1 {
+      font-size: 3rem;
+      color: $text-color;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      color: $text-light;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+}
+
+// Project Card
+.project-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  @include card-shadow;
+  @include hover-scale;
+  
+  .project-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      @include flex-center;
+    }
+    
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+      
+      .project-overlay {
+        opacity: 1;
+      }
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+  
+  .project-content {
+    padding: 1.5rem;
+    
+    .project-title {
+      font-size: 1.3rem;
+      color: $text-color;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-description {
+      color: $text-light;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .project-technologies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      
+      .tech-tag {
+        background: linear-gradient(135deg, $primary-color, $secondary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Footer
+.main-footer {
+  background: $text-color;
+  color: white;
+  padding: 3rem 2rem 1rem;
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    
+    .footer-section {
+      h4 {
+        margin-bottom: 1rem;
+        color: $primary-color;
+      }
+      
+      p, ul {
+        color: #d1d5db;
+      }
+      
+      ul {
+        list-style: none;
+        
+        li {
+          margin-bottom: 0.5rem;
+          
+          a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+      
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        
+        a {
+          color: #d1d5db;
+          text-decoration: none;
+          padding: 0.5rem;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            color: $primary-color;
+            background: rgba($primary-color, 0.1);
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 1rem;
+    text-align: center;
+    color: #9ca3af;
+  }
+}
+
+// רספונסיביות נוספת
+@media (max-width: $mobile) {
+  .main-header {
+    .header-content {
+      padding: 0 1rem;
+    }
+    
+    .main-nav {
+      gap: 1rem;
+      
+      .nav-link {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    
+    .btn-primary, .btn-secondary {
+      width: 100%;
+    }
+  }
+}
