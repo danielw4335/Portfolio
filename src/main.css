@@ -4,6 +4,10 @@
 @import './styles/components/footer.css';
 @import './styles/components/contact.css';
 @import './styles/components/project-card.css';
+@import './styles/components/hero-section.css';
+@import './styles/components/skills.css';
+@import './styles/components/blog.css';
 @import './styles/pages/home.css';
 @import './styles/pages/projects.css';
 @import './styles/responsive.css';
+@import './styles/responsive-fix.css';

@@ -1,6 +1,4 @@
-/* CSS Variables for Modern Design */
 :root {
-  /* Colors */
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --text-accent: #3b82f6;
@@ -12,8 +10,6 @@
   
   --border-color: #e5e7eb;
   --border-hover: #d1d5db;
-  
-  /* Gradients */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -263,7 +259,7 @@ body.dark .about-section li {
   color: var(--text-secondary);
 }
 
-body.dark .skills-grid .skill-card {
+body.dark .skill-card {
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-light);
@@ -271,6 +267,10 @@ body.dark .skills-grid .skill-card {
 
 body.dark .skills-grid .skill-card h4 {
   color: var(--text-primary);
+}
+
+body.dark .skills-grid .skill-card p {
+  color: var(--text-secondary);
 }
 
 body.dark .education-experience-grid .experience-card {
@@ -405,4 +405,41 @@ body.dark .btn-secondary:hover {
   background-color: var(--text-accent);
   color: var(--bg-primary);
   transform: scale(1.05);
+}
+
+/* Dark mode animation adjustments */
+body.dark .skill-card::before {
+  background: linear-gradient(45deg, transparent, rgba(96, 165, 250, 0.05), transparent);
+}
+
+body.dark .skill-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes darkBorderGlow {
+  0%, 100% {
+    border-color: var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    border-color: rgba(96, 165, 250, 0.6);
+    box-shadow: 0 8px 16px rgba(96, 165, 250, 0.3);
+  }
+}
+
+body.dark .skill-card:hover {
+  animation: darkBorderGlow 2s ease-in-out infinite;
+}
+
+@keyframes darkTextGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(96, 165, 250, 0);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+  }
+}
+
+body.dark .skill-card:hover h4 {
+  animation: darkTextGlow 2s ease-in-out infinite;
 }

@@ -11,36 +11,35 @@ const ContactSection = () => {
       : "Hi Daniel, I saw your portfolio and would like to discuss job opportunities with you"
   );
 
-  const contactLinks = [
-    {
+  const contactLinks = [    {
       icon: "📧",
       text: "daniel.wallache@gmail.com",
       href: "mailto:daniel.wallache@gmail.com",
-      label: t.email
+      label: t.contact.methods.email
     },
     {
       icon: "📱",
       text: "WhatsApp",
       href: `https://wa.me/972${phoneNumber.substring(1)}?text=${whatsappMessage}`,
-      label: t.whatsapp
+      label: t.contact.methods.whatsapp
     },
     {
       icon: "💼",
       text: "LinkedIn",
       href: "https://www.linkedin.com/in/daniel-wallache/",
-      label: t.linkedin
+      label: t.contact.methods.linkedin
     },
     {
       icon: "🐱",
       text: "GitHub", 
       href: "https://github.com/danielw4335",
-      label: t.github
+      label: t.contact.methods.github
     },
     {
       icon: "📄",
-      text: t.downloadCV,
-      href: "/daniel-wallache-cv.pdf",
-      label: t.resume,
+      text: t.contact.methods.resume,
+      href: "/Daniel_Wallache_CV.docx",
+      label: t.contact.methods.resume,
       download: true
     }
   ];
@@ -48,8 +47,8 @@ const ContactSection = () => {
   return (
     <section className="contact-section" id="contact">
       <div className="contact-content">
-        <h3>{t.contactTitle}</h3>
-        <p>{t.contactDesc}</p>        <div className="contact-links">
+        <h3>{t.contact.title}</h3>
+        <p>{t.contact.description}</p>        <div className="contact-links">
           {contactLinks.map((link, index) => (
             <a 
               key={index}

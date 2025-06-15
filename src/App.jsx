@@ -8,7 +8,6 @@ import AdminPage from './pages/AdminPage'
 import NotFoundPage from './pages/NotFoundPage'
 import Footer from './cmps/Footer'
 
-// Import all CSS files
 import './styles/global.css'
 import './styles/responsive.css'
 import './styles/components/header.css'

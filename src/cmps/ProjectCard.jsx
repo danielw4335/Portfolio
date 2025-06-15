@@ -17,10 +17,10 @@ const ProjectCard = ({ project }) => {
               target="_blank" 
               rel="noopener noreferrer"
               className="project-link primary"
-              title={t.viewDemo}
+              title={t.projects.cta.demo}
             >
               <span className="link-icon">🚀</span>
-              <span className="link-text">{t.viewDemo}</span>
+              <span className="link-text">{t.projects.cta.demo}</span>
             </a>
             {codeLinks ? (
               <div className="code-links">
@@ -29,20 +29,20 @@ const ProjectCard = ({ project }) => {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="project-link secondary"
-                  title={`${t.viewCode} - ${t.viewFrontend}`}
+                  title={`${t.projects.cta.code} - ${t.projects.cta.frontend}`}
                 >
                   <span className="link-icon">💻</span>
-                  <span className="link-text">{t.viewFrontend}</span>
+                  <span className="link-text">{t.projects.cta.frontend}</span>
                 </a>
                 <a 
                   href={codeLinks.backend} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="project-link secondary"
-                  title={`${t.viewCode} - ${t.viewBackend}`}
+                  title={`${t.projects.cta.code} - ${t.projects.cta.backend}`}
                 >
                   <span className="link-icon">⚙️</span>
-                  <span className="link-text">{t.viewBackend}</span>
+                  <span className="link-text">{t.projects.cta.backend}</span>
                 </a>
               </div>
             ) : (
@@ -51,10 +51,10 @@ const ProjectCard = ({ project }) => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="project-link secondary"
-                title={t.viewCode}
+                title={t.projects.cta.code}
               >
                 <span className="link-icon">📝</span>
-                <span className="link-text">{t.viewCode}</span>
+                <span className="link-text">{t.projects.cta.code}</span>
               </a>
             )}
           </div>
@@ -81,7 +81,7 @@ const ProjectCard = ({ project }) => {
               rel="noopener noreferrer"
               className="project-link-small primary"
             >
-              {t.viewDemo}
+              {t.projects.cta.demo}
             </a>
             {codeLinks ? (
               <>

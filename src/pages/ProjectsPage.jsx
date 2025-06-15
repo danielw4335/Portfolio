@@ -10,9 +10,8 @@ const ProjectsPage = () => {
 
   return (
     <div className="projects-page">
-      <div className="projects-header">
-        <h1>{t.projectsTitle}</h1>
-        <p>{t.projectsSubtitle}</p>
+      <div className="projects-header">        <h1>{t.projects.title}</h1>
+        <p>{t.projects.subtitle}</p>
       </div>
       
       <div className="projects-grid">

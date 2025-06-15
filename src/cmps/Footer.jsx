@@ -7,25 +7,24 @@ function Footer() {
 
   return (
     <footer className="main-footer">
-      <div className="footer-content">
-        <div className="footer-section">
-          <h4>{t.footerTitle}</h4>
-          <p>{t.footerDesc}</p>
+      <div className="footer-content">        <div className="footer-section">
+          <h4>{t.footer.title}</h4>
+          <p>{t.footer.description}</p>
           <p>Negohot | 058-7621874</p>
         </div>
         
         <div className="footer-section">
-          <h4>{t.quickLinks}</h4>
+          <h4>{t.footer.quickLinks}</h4>
           <ul>
-            <li><a href="/">{t.home}</a></li>
-            <li><a href="/projects">{t.projects}</a></li>
-            <li><a href="#about">{t.about}</a></li>
-            <li><a href="#contact">{t.contact}</a></li>
+            <li><a href="/">{t.nav.home}</a></li>
+            <li><a href="/projects">{t.nav.projects}</a></li>
+            <li><a href="#about">{t.nav.about}</a></li>
+            <li><a href="#contact">{t.nav.contact}</a></li>
           </ul>
         </div>
         
         <div className="footer-section">
-          <h4>{t.socialNetworks}</h4>
+          <h4>{t.footer.socialNetworks}</h4>
           <div className="social-links">
             <a href="https://github.com/danielw4335" target="_blank" rel="noopener noreferrer">
               GitHub
@@ -40,7 +39,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 Daniel Wallache. {t.allRightsReserved}.</p>
+        <p>&copy; 2025 Daniel Wallache. {t.footer.allRightsReserved}.</p>
       </div>
     </footer>
   );

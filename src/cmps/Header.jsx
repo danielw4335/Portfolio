@@ -9,12 +9,11 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const t = translations[language];
   const [menuOpen, setMenuOpen] = useState(false);
-
   const navigationItems = [
-    { path: '/', label: t.home },
-    { path: '/projects', label: t.projects },
-    { href: '#about', label: t.about },
-    { href: '#contact', label: t.contact }
+    { path: '/', label: t.nav.home },
+    { path: '/projects', label: t.nav.projects },
+    { href: '#about', label: t.nav.about },
+    { href: '#contact', label: t.nav.contact }
   ];
 
   return (
@@ -24,7 +23,7 @@ const Header = () => {
           <h2>Daniel Wallache</h2>
         </Link>        <button
           className="menu-toggle"
-          aria-label={menuOpen ? t.closeMenu || 'Close menu' : t.openMenu || 'Open menu'}
+          aria-label={menuOpen ? t.nav.closeMenu || 'Close menu' : t.nav.openMenu || 'Open menu'}
           onClick={() => setMenuOpen((open) => !open)}
         >
           <img src={hamburgerIcon} alt="menu" style={{width: 28, height: 28}} />
@@ -51,7 +50,7 @@ const Header = () => {
           <button 
             className="theme-toggle"
             onClick={toggleTheme}
-            title={theme === 'light' ? t.switchToDark : t.switchToLight}
+            title={theme === 'light' ? t.theme.switchToDark : t.theme.switchToLight}
           >
             {theme === 'light' ? '🌙' : '☀️'}
           </button>

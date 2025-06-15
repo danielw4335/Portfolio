@@ -1,0 +1,67 @@
+/* Mobile accessibility improvements */
+@media (max-width: 768px) {
+  /* Increase touch target sizes for better usability */
+  button, 
+  .btn,
+  a.nav-link,
+  a.contact-link,
+  .project-card,
+  .blog-post {
+    touch-action: manipulation;
+  }
+
+  /* Improved readability for small screens */
+  .hero-section,
+  .about-section,
+  .skills-section,
+  .blog-section,
+  .contact-section {
+    overflow-x: hidden;
+  }
+
+  /* Optimize space on mobile */
+  .section-container {
+    width: 100% !important;
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+  }
+  
+  /* Make elements smaller on mobile */
+  .logo-container {
+    transform: scale(0.85);
+  }
+  
+  /* Optimize mobile forms */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 0.6rem 0.8rem !important;
+  }
+  
+  /* Ensure transitions are smooth on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  /* Even smaller elements and tighter spacing */
+  .logo-container {
+    transform: scale(0.75);
+  }
+  
+  /* Reduce padding and margins */
+  .section-padding {
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
+  }
+  
+  /* Make form elements larger on very small screens for better usability */
+  input,
+  textarea,
+  select {
+    padding: 0.7rem 0.9rem !important;
+  }
+}

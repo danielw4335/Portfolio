@@ -47,16 +47,15 @@ const HeroSection = ({ onViewProjects }) => {
           <h2 className="hero-subtitle">
             {language === 'he' ? 'בונה אפליקציות עם ' : 'Building applications with '}
             <span className="skill-rotator">{skills[currentSkill]}</span>
-          </h2>
-            <p className="hero-description">{t.heroDescription}</p>
+          </h2>            <p className="hero-description">{t.hero.description}</p>
           
           <div className="hero-buttons">
             <button className="btn-primary hero-cta" onClick={onViewProjects}>
-              <span className="btn-text">{t.viewMyWork}</span>
+              <span className="btn-text">{t.hero.cta.primary}</span>
               <span className="btn-icon">🚀</span>
             </button>
             <a href="#contact" className="btn-secondary hero-contact">
-              <span className="btn-text">{t.contactMe}</span>
+              <span className="btn-text">{t.hero.cta.secondary}</span>
               <span className="btn-icon">💬</span>
             </a>
           </div>

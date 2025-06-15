@@ -151,54 +151,83 @@ body.dark .main-header {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
   z-index: 120;
 }
 
-@media (max-width: 900px) {
+.menu-toggle:hover {
+  background: var(--bg-accent);
+}
+
+.menu-toggle img {
+  width: 24px;
+  height: 24px;
+  filter: var(--icon-filter);
+}
+
+@media (max-width: 768px) {
   .menu-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    display: block;
   }
+  
   .main-nav {
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
-    width: 70vw;
+    width: 80vw;
     max-width: 320px;
-    background: var(--bg-primary, #fff);
-    box-shadow: -2px 0 16px rgba(0,0,0,0.08);
+    background: var(--bg-primary);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
     flex-direction: column;
     align-items: flex-start;
-    padding: 4rem 2rem 2rem 2rem;
+    padding: 5rem 1.5rem 2rem 1.5rem;
     gap: 1.5rem;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(.4,0,.2,1);
     z-index: 110;
-    opacity: 0.98;
     visibility: hidden;
   }
+  
   .main-nav.open {
     transform: translateX(0);
     visibility: visible;
   }
-  .main-header {
-    position: fixed;
-    width: 100vw;
-    left: 0;
-    top: 0;
-    z-index: 200;
-  }
-  .header-content {
-    flex-direction: row;
-    justify-content: space-between;
+  
+  .main-nav .nav-link,
+  .main-nav .language-toggle,
+  .main-nav .theme-toggle,
+  .main-nav .admin-link {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    text-align: left;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: flex;
     align-items: center;
+    font-size: 1rem;
+  }
+  
+  .main-nav .nav-link:hover,
+  .main-nav .language-toggle:hover,
+  .main-nav .theme-toggle:hover,
+  .main-nav .admin-link:hover {
+    background: var(--bg-accent);
+    transform: translateX(5px);
+  }
+  
+  .header-content {
     padding: 0 1rem;
   }
 }
+
 
 @media (max-width: 600px) {
   .main-nav {
